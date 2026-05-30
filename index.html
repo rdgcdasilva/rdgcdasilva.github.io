@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prof. Dr. Rodrigo Cunha da Silva</title>
+  <meta name="description" content="Professor Titular no PPG Hospitalidade (UAM) · Workforce Design & Intelligence na EDP · Doutor e Pós-Doutor em Administração pela USP" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:      #1a1a2e;
+      --ink2:     #2d2d44;
+      --mid:      #4a4a6a;
+      --muted:    #7a7a9a;
+      --subtle:   #b0b0c8;
+      --dust:     #e8e6f0;
+      --bg:       #f9f8fc;
+      --white:    #ffffff;
+      --gold:     #c8922a;
+      --gold2:    #e8b44a;
+      --teal:     #2a7a8c;
+      --teal2:    #3a9aaf;
+      --accent:   #5a3e8c;
+      --accent2:  #7a5eac;
+      --green:    #2a7a5a;
+      --radius:   10px;
+      --shadow:   0 2px 20px rgba(26,26,46,.08);
+      --shadow2:  0 4px 40px rgba(26,26,46,.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--dust); }
+    ::-webkit-scrollbar-thumb { background: var(--subtle); border-radius: 3px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 3rem;
+      background: rgba(249,248,252,.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--dust);
+    }
+    .nav-brand { display: flex; flex-direction: column; }
+    .nav-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: .95rem; color: var(--ink); }
+    .nav-role { font-size: .7rem; color: var(--muted); letter-spacing: .3px; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a { color: var(--mid); text-decoration: none; font-size: .82rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent); color: #fff;
+      padding: .45rem 1.2rem; border-radius: 6px;
+      font-size: .78rem; font-weight: 600; text-decoration: none;
+      transition: opacity .2s, transform .2s;
+    }
+    .nav-cta:hover { opacity: .88; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 7rem 0 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-deco {
+      position: absolute; right: -100px; top: -100px;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(90,62,140,.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-deco2 {
+      position: absolute; left: -50px; bottom: -50px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(42,122,140,.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 3rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+    .hero-label {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(90,62,140,.08); border: 1px solid rgba(90,62,140,.15);
+      border-radius: 99px; padding: .3rem .9rem;
+      font-size: .7rem; font-weight: 700; color: var(--accent);
+      letter-spacing: .8px; text-transform: uppercase; margin-bottom: 1.25rem;
+    }
+    .hero-label span { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-weight: 800; line-height: 1.1; letter-spacing: -.5px;
+      margin-bottom: 1.25rem; color: var(--ink);
+    }
+    h1 em { font-style: normal; color: var(--accent); }
+    .hero-desc {
+      font-size: 1rem; color: var(--mid); line-height: 1.8;
+      margin-bottom: 2rem; max-width: 480px;
+    }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2rem; }
+    .badge {
+      display: flex; align-items: center; gap: .4rem;
+      background: var(--white); border: 1px solid var(--dust);
+      border-radius: 6px; padding: .4rem .8rem;
+      font-size: .75rem; font-weight: 600; color: var(--ink2);
+      box-shadow: 0 1px 4px rgba(26,26,46,.06);
+    }
+    .badge .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .dot-gold { background: var(--gold); }
+    .dot-teal { background: var(--teal); }
+    .dot-accent { background: var(--accent); }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-main {
+      background: var(--accent); color: #fff;
+      padding: .75rem 1.75rem; border-radius: 8px; font-weight: 600;
+      text-decoration: none; font-size: .875rem;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 14px rgba(90,62,140,.3);
+    }
+    .btn-main:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(90,62,140,.4); }
+    .btn-outline {
+      background: transparent; color: var(--accent);
+      padding: .75rem 1.75rem; border-radius: 8px; font-weight: 600;
+      text-decoration: none; font-size: .875rem; border: 1.5px solid var(--accent);
+      transition: background .2s, color .2s;
+    }
+    .btn-outline:hover { background: var(--accent); color: #fff; }
+
+    /* HERO CARD */
+    .hero-card {
+      background: var(--white); border: 1px solid var(--dust);
+      border-radius: 16px; padding: 2rem;
+      box-shadow: var(--shadow2);
+    }
+    .card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+    .avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--teal));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700;
+      color: #fff; flex-shrink: 0;
+    }
+    .card-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; }
+    .card-title { font-size: .75rem; color: var(--muted); margin-top: .1rem; }
+    .card-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+    .stat-box { background: var(--bg); border-radius: 8px; padding: .875rem; text-align: center; }
+    .stat-n { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 800; color: var(--accent); line-height: 1; }
+    .stat-l { font-size: .7rem; color: var(--muted); margin-top: .2rem; line-height: 1.3; }
+    .card-links { display: flex; flex-direction: column; gap: .5rem; }
+    .card-link {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--bg); border-radius: 6px; padding: .5rem .75rem;
+      text-decoration: none; font-size: .75rem; font-weight: 600; color: var(--mid);
+      transition: background .2s, color .2s;
+    }
+    .card-link:hover { background: var(--dust); color: var(--accent); }
+    .card-link svg { opacity: .5; }
+
+    /* ── SECTIONS ── */
+    section { padding: 5.5rem 0; }
+    .inner { max-width: 1100px; margin: 0 auto; padding: 0 3rem; }
+    .section-eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.2px; color: var(--gold); margin-bottom: .75rem;
+    }
+    .section-eyebrow::before { content: ''; display: block; width: 20px; height: 2px; background: var(--gold); }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800;
+      letter-spacing: -.3px; margin-bottom: .75rem; line-height: 1.2;
+    }
+    .section-lead { color: var(--mid); font-size: .95rem; max-width: 540px; margin-bottom: 3rem; line-height: 1.8; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 4rem; align-items: start; }
+    .about-body p { color: var(--mid); margin-bottom: 1rem; line-height: 1.85; font-size: .95rem; }
+    .about-body p strong { color: var(--ink); }
+    .about-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
+    .tag {
+      background: rgba(90,62,140,.06); border: 1px solid rgba(90,62,140,.12);
+      color: var(--accent2); padding: .28rem .7rem; border-radius: 5px;
+      font-size: .72rem; font-weight: 600;
+    }
+    .edu-card {
+      background: var(--bg); border: 1px solid var(--dust);
+      border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow);
+    }
+    .edu-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; margin-bottom: 1.25rem; }
+    .edu-item { display: flex; gap: 1rem; margin-bottom: 1rem; }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-year {
+      font-family: 'JetBrains Mono', monospace; font-size: .68rem;
+      color: var(--gold); font-weight: 500; white-space: nowrap; padding-top: 3px;
+    }
+    .edu-info-title { font-weight: 600; font-size: .825rem; margin-bottom: .15rem; }
+    .edu-info-inst { font-size: .75rem; color: var(--muted); }
+
+    /* ── CAREER ── */
+    #career { background: var(--bg); }
+    .career-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .career-card {
+      background: var(--white); border: 1px solid var(--dust);
+      border-radius: var(--radius); padding: 1.5rem;
+      box-shadow: var(--shadow); transition: border-color .2s, transform .2s;
+    }
+    .career-card:hover { border-color: rgba(90,62,140,.25); transform: translateY(-2px); }
+    .career-card.current { border-color: rgba(90,62,140,.3); border-top: 3px solid var(--accent); }
+    .career-period {
+      font-family: 'JetBrains Mono', monospace; font-size: .68rem;
+      color: var(--teal); font-weight: 500; margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem;
+    }
+    .current-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: blink 1.5s infinite; }
+    .career-role { font-weight: 700; font-size: .95rem; margin-bottom: .2rem; }
+    .career-org { font-size: .8rem; color: var(--muted); margin-bottom: .75rem; }
+    .career-desc { font-size: .8rem; color: var(--mid); line-height: 1.7; margin-bottom: .75rem; }
+    .career-chips { display: flex; flex-wrap: wrap; gap: .3rem; }
+    .chip {
+      background: rgba(42,122,140,.07); border: 1px solid rgba(42,122,140,.15);
+      color: var(--teal); padding: .18rem .55rem; border-radius: 4px;
+      font-size: .68rem; font-weight: 600;
+    }
+
+    /* ── RESEARCH ── */
+    #research { background: var(--white); }
+    .research-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
+    .research-card {
+      background: var(--bg); border: 1px solid var(--dust);
+      border-radius: var(--radius); padding: 1.5rem;
+      box-shadow: var(--shadow); transition: border-color .2s, transform .2s;
+      display: flex; flex-direction: column;
+    }
+    .research-card:hover { border-color: rgba(200,146,42,.3); transform: translateY(-2px); }
+    .research-type {
+      font-size: .65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .8px; color: var(--gold); margin-bottom: .75rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .research-title { font-weight: 700; font-size: .9rem; line-height: 1.4; margin-bottom: .5rem; }
+    .research-desc { font-size: .8rem; color: var(--mid); line-height: 1.7; flex: 1; }
+    .research-meta { margin-top: 1rem; padding-top: .75rem; border-top: 1px solid var(--dust); font-size: .7rem; color: var(--muted); display: flex; justify-content: space-between; align-items: center; }
+    .research-status {
+      display: inline-flex; align-items: center; gap: .3rem;
+      font-size: .65rem; font-weight: 700; padding: .2rem .55rem; border-radius: 4px;
+    }
+    .status-pub { background: rgba(42,122,90,.1); color: var(--green); }
+    .status-prog { background: rgba(90,62,140,.1); color: var(--accent); }
+    .status-sub { background: rgba(200,146,42,.1); color: var(--gold); }
+
+    /* ── PUBLICATIONS ── */
+    #publications { background: var(--bg); }
+    .pub-section { margin-bottom: 2.5rem; }
+    .pub-section-title {
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem;
+      margin-bottom: 1.25rem; padding-bottom: .5rem; border-bottom: 2px solid var(--dust);
+      display: flex; align-items: center; gap: .6rem; color: var(--ink2);
+    }
+    .pub-item {
+      background: var(--white); border: 1px solid var(--dust);
+      border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: .75rem;
+      box-shadow: var(--shadow); transition: border-color .2s;
+      display: flex; gap: 1.25rem; align-items: flex-start;
+    }
+    .pub-item:hover { border-color: rgba(200,146,42,.3); }
+    .pub-year {
+      font-family: 'JetBrains Mono', monospace; font-size: .75rem;
+      color: var(--gold); font-weight: 700; white-space: nowrap;
+      background: rgba(200,146,42,.08); padding: .2rem .5rem; border-radius: 4px;
+      height: fit-content; margin-top: 2px;
+    }
+    .pub-content { flex: 1; }
+    .pub-title { font-weight: 600; font-size: .875rem; margin-bottom: .25rem; color: var(--ink); line-height: 1.4; }
+    .pub-authors { font-size: .78rem; color: var(--muted); margin-bottom: .2rem; }
+    .pub-journal { font-size: .75rem; color: var(--teal); font-style: italic; }
+
+    /* ── PATENTS ── */
+    #patents { background: var(--white); }
+    .patents-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .patent-card {
+      background: linear-gradient(135deg, rgba(200,146,42,.04), rgba(90,62,140,.04));
+      border: 1px solid rgba(200,146,42,.2);
+      border-radius: var(--radius); padding: 1.75rem;
+      box-shadow: var(--shadow);
+    }
+    .patent-icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .patent-num {
+      font-family: 'JetBrains Mono', monospace; font-size: .7rem;
+      color: var(--gold); font-weight: 500; margin-bottom: .5rem;
+    }
+    .patent-title { font-weight: 700; font-size: .975rem; margin-bottom: .5rem; line-height: 1.4; }
+    .patent-desc { font-size: .8rem; color: var(--mid); line-height: 1.7; }
+    .patent-date { font-size: .7rem; color: var(--muted); margin-top: .75rem; font-family: 'JetBrains Mono', monospace; }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--bg); }
+    .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .skill-group-title { font-weight: 700; font-size: .825rem; margin-bottom: 1rem; color: var(--ink2); text-transform: uppercase; letter-spacing: .5px; font-size: .72rem; }
+    .skill-list { display: flex; flex-direction: column; gap: .75rem; }
+    .skill-row { display: flex; flex-direction: column; gap: .3rem; }
+    .skill-meta { display: flex; justify-content: space-between; align-items: center; }
+    .skill-name { font-size: .82rem; font-weight: 600; color: var(--ink2); }
+    .skill-pct { font-size: .68rem; font-family: 'JetBrains Mono', monospace; color: var(--muted); }
+    .skill-bar { height: 5px; background: var(--dust); border-radius: 3px; overflow: hidden; }
+    .skill-fill { height: 100%; border-radius: 3px; transition: width 1.2s ease; }
+    .fill-accent { background: linear-gradient(90deg, var(--accent), var(--teal)); }
+    .fill-gold { background: linear-gradient(90deg, var(--gold), var(--gold2)); }
+    .tools-grid { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .tool-pill {
+      background: var(--white); border: 1px solid var(--dust);
+      border-radius: 99px; padding: .3rem .85rem;
+      font-size: .75rem; font-weight: 500; color: var(--mid);
+      display: flex; align-items: center; gap: .35rem;
+    }
+
+    /* ── TEACHING ── */
+    #teaching { background: var(--white); }
+    .teaching-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    .teaching-block { margin-bottom: 2rem; }
+    .teaching-inst {
+      display: flex; align-items: center; gap: .75rem;
+      background: var(--bg); border: 1px solid var(--dust);
+      border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem;
+    }
+    .inst-icon { font-size: 1.5rem; }
+    .inst-name { font-weight: 700; font-size: .9rem; }
+    .inst-role { font-size: .75rem; color: var(--muted); margin-top: .1rem; }
+    .inst-period { font-family: 'JetBrains Mono', monospace; font-size: .68rem; color: var(--teal); margin-top: .1rem; }
+    .orientandos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+    .orientando-card {
+      background: var(--bg); border: 1px solid var(--dust);
+      border-radius: 8px; padding: .875rem 1rem;
+    }
+    .orientando-level {
+      font-size: .6rem; text-transform: uppercase; letter-spacing: .8px;
+      font-weight: 700; margin-bottom: .3rem;
+    }
+    .level-m { color: var(--teal); }
+    .level-d { color: var(--accent); }
+    .orientando-name { font-weight: 700; font-size: .825rem; margin-bottom: .25rem; }
+    .orientando-tema { font-size: .75rem; color: var(--mid); line-height: 1.5; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg); }
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .contact-desc { color: var(--mid); font-size: .95rem; line-height: 1.8; margin-bottom: 2rem; }
+    .contact-links { display: flex; flex-direction: column; gap: .75rem; }
+    .contact-link {
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--white); border: 1px solid var(--dust);
+      border-radius: var(--radius); padding: 1rem 1.25rem;
+      text-decoration: none; color: var(--ink);
+      box-shadow: var(--shadow); transition: border-color .2s, transform .2s;
+    }
+    .contact-link:hover { border-color: rgba(90,62,140,.3); transform: translateX(4px); }
+    .cl-icon { font-size: 1.2rem; width: 40px; height: 40px; border-radius: 8px; background: var(--bg); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .cl-label { font-size: .68rem; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; }
+    .cl-val { font-weight: 600; font-size: .85rem; }
+    .contact-form {
+      background: var(--white); border: 1px solid var(--dust);
+      border-radius: 14px; padding: 2rem; box-shadow: var(--shadow2);
+    }
+    .form-title { font-family: 'Playfair Display', serif; font-weight: 700; margin-bottom: 1.5rem; font-size: 1.15rem; }
+    .form-row { margin-bottom: 1.1rem; }
+    label { display: block; font-size: .72rem; font-weight: 700; color: var(--mid); margin-bottom: .35rem; text-transform: uppercase; letter-spacing: .4px; }
+    input, textarea, select {
+      width: 100%; background: var(--bg); border: 1.5px solid var(--dust);
+      border-radius: 7px; padding: .7rem 1rem; color: var(--ink);
+      font-family: 'Inter', sans-serif; font-size: .875rem;
+      transition: border-color .2s; outline: none;
+    }
+    input:focus, textarea:focus { border-color: var(--accent); }
+    textarea { resize: vertical; min-height: 110px; }
+    .form-btn {
+      width: 100%; background: var(--accent); color: #fff;
+      border: none; border-radius: 8px; padding: .85rem;
+      font-weight: 700; font-size: .875rem; cursor: pointer;
+      transition: opacity .2s, transform .2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .form-btn:hover { opacity: .88; transform: translateY(-1px); }
+    .form-note { font-size: .68rem; color: var(--muted); text-align: center; margin-top: .75rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink); color: rgba(255,255,255,.5);
+      padding: 2.5rem 0;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 3rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-name { font-family: 'Playfair Display', serif; color: #fff; font-weight: 700; font-size: .95rem; margin-bottom: .2rem; }
+    .footer-sub { font-size: .75rem; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: rgba(255,255,255,.5); text-decoration: none; font-size: .78rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--gold2); }
+
+    /* ── DIVIDER ── */
+    .divider { height: 1px; background: var(--dust); max-width: 1100px; margin: 0 auto; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .inner { padding: 0 1.5rem; }
+      .about-grid, .career-grid, .research-grid, .contact-layout, .teaching-grid, .patents-grid, .skills-layout { grid-template-columns: 1fr; }
+      .orientandos-grid { grid-template-columns: 1fr; }
+    }
+
+    /* FADE IN */
+    .fade { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .fade.in { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <span class="nav-name">Prof. Dr. Rodrigo Cunha da Silva</span>
+    <span class="nav-role">PPG Hospitalidade UAM · EDP · FIA</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">Sobre</a></li>
+    <li><a href="#career">Carreira</a></li>
+    <li><a href="#research">Pesquisa</a></li>
+    <li><a href="#publications">Publicações</a></li>
+    <li><a href="#teaching">Docência</a></li>
+    <li><a href="#contact">Contato</a></li>
+  </ul>
+  <a href="mailto:rdgcdasilva@gmail.com" class="nav-cta">Fale comigo</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-deco2"></div>
+  <div class="hero-inner">
+    <div class="fade">
+      <div class="hero-label"><span></span>São Paulo, SP · Disponível para colaborações</div>
+      <h1>Rodrigo<br/><em>Cunha da Silva</em></h1>
+      <p class="hero-desc">
+        Professor Titular no PPG em Hospitalidade (UAM), Doutor e Pós-Doutor em Administração pela USP, e Analista Sênior de Workforce Design &amp; Intelligence na EDP. Meu trabalho une ciência de dados, hospitalidade organizacional e gestão de pessoas.
+      </p>
+      <div class="hero-badges">
+        <span class="badge"><span class="dot dot-accent"></span>PPG Hospitalidade · UAM</span>
+        <span class="badge"><span class="dot dot-teal"></span>EDP Energias do Brasil</span>
+        <span class="badge"><span class="dot dot-gold"></span>Doutor &amp; Pós-Doutor · USP</span>
+        <span class="badge"><span class="dot dot-gold"></span>2 Patentes INPI</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#research" class="btn-main">Ver pesquisas</a>
+        <a href="#contact" class="btn-outline">Entrar em contato</a>
+      </div>
+    </div>
+    <div class="fade">
+      <div class="hero-card">
+        <div class="card-header">
+          <div class="avatar">RC</div>
+          <div>
+            <div class="card-name">Rodrigo Cunha da Silva</div>
+            <div class="card-title">Workforce Design &amp; Intelligence at EDP<br/>Professor Titular · UAM</div>
+          </div>
+        </div>
+        <div class="card-stats">
+          <div class="stat-box"><div class="stat-n">33+</div><div class="stat-l">Fontes na base de conhecimento</div></div>
+          <div class="stat-box"><div class="stat-n">82</div><div class="stat-l">Páginas de wiki de pesquisa</div></div>
+          <div class="stat-box"><div class="stat-n">2</div><div class="stat-l">Patentes registradas INPI</div></div>
+          <div class="stat-box"><div class="stat-n">15+</div><div class="stat-l">Anos de experiência</div></div>
+        </div>
+        <div class="card-links">
+          <a href="https://www.linkedin.com/in/rodrigo-da-cunha-a5604035b/" target="_blank" rel="noopener" class="card-link">
+            <span>🔗 LinkedIn</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <a href="https://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4177256J0" target="_blank" rel="noopener" class="card-link">
+            <span>📋 Lattes CNPq · K4177256J0</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <a href="https://orcid.org/0000-0002-0730-7801" target="_blank" rel="noopener" class="card-link">
+            <span>🆔 ORCID · 0000-0002-0730-7801</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <a href="https://www.webofscience.com/wos/author/record/AAM-3706-2020" target="_blank" rel="noopener" class="card-link">
+            <span>📊 Web of Science · AAM-3706-2020</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="inner">
+    <div class="about-grid fade">
+      <div class="about-body">
+        <span class="section-eyebrow">Sobre</span>
+        <h2>Da gestão de pessoas<br/>à hospitalidade organizacional</h2>
+        <p>
+          Sou pesquisador e professor na fronteira entre <strong>ciência de dados, gestão de pessoas e hospitalidade organizacional</strong>. Minha trajetória é marcada pela integração entre rigor acadêmico e aplicação prática: do doutoramento na <strong>FEA-USP</strong> ao trabalho com grandes bases de dados em empresas como <strong>EDP, Grupo Soma/Hering e BRF Foods</strong>.
+        </p>
+        <p>
+          Como Professor Titular do <strong>PPG em Hospitalidade da Universidade Anhembi Morumbi</strong>, oriento mestrandos e doutorandos que investigam como as organizações acolhem — ou excluem — seus funcionários e clientes. Minha tese central: a <em>hospitalidade não é ornamento, é estrutura</em>.
+        </p>
+        <p>
+          Na indústria, lidero projetos de <strong>Workforce Design &amp; Intelligence na EDP</strong> e leciono People Analytics no <strong>MBA de RH da FIA</strong> desde 2013. Tenho duas patentes registradas no INPI em sistemas de machine learning aplicados à gestão de talentos e tomada de decisão.
+        </p>
+        <div class="about-tags">
+          <span class="tag">Hospitalidade Organizacional</span>
+          <span class="tag">People Analytics</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">NLP</span>
+          <span class="tag">Workforce Design</span>
+          <span class="tag">Gestão de Pessoas</span>
+          <span class="tag">Comportamento Organizacional</span>
+          <span class="tag">Gerações</span>
+          <span class="tag">Remuneração</span>
+          <span class="tag">Cultura Organizacional</span>
+        </div>
+      </div>
+      <div>
+        <div class="edu-card fade">
+          <div class="edu-title">Formação Acadêmica</div>
+          <div class="edu-item">
+            <div class="edu-year">2016–2018</div>
+            <div>
+              <div class="edu-info-title">Pós-Doutorado em Administração</div>
+              <div class="edu-info-inst">FEA — Universidade de São Paulo (USP)</div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-year">2010–2013</div>
+            <div>
+              <div class="edu-info-title">Doutorado Direto em Administração</div>
+              <div class="edu-info-inst">FEA — Universidade de São Paulo (USP)<br/><em style="font-size:.7rem;color:var(--muted)">"A abordagem geracional como proposta à gestão de pessoas" · Orient. Joel Souza Dutra</em></div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-year">2004–2007</div>
+            <div>
+              <div class="edu-info-title">Graduação em Administração</div>
+              <div class="edu-info-inst">Universidade Cidade de São Paulo (UNICID)</div>
+            </div>
+          </div>
+          <div style="margin-top:1.25rem; padding-top:1rem; border-top:1px solid var(--dust)">
+            <div class="edu-title" style="font-size:.825rem;margin-bottom:.75rem">Extensão &amp; Certificações</div>
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <span style="font-size:.75rem;color:var(--mid)">• People Analytics — FIA (2019)</span>
+              <span style="font-size:.75rem;color:var(--mid)">• Análise de Big Data via ML — FIA (2018)</span>
+              <span style="font-size:.75rem;color:var(--mid)">• Python para Data Science — Udemy (2019)</span>
+              <span style="font-size:.75rem;color:var(--mid)">• Power BI — Udemy (2020)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section id="career">
+  <div class="inner">
+    <span class="section-eyebrow">Carreira</span>
+    <h2>Trajetória profissional</h2>
+    <p class="section-lead">Uma carreira construída na intersecção entre academia e mercado — de consultoria a grandes empresas, sempre com dados no centro.</p>
+    <div class="career-grid fade">
+
+      <div class="career-card current">
+        <div class="career-period"><span class="current-dot"></span>2023 — atual</div>
+        <div class="career-role">Workforce Design &amp; Intelligence</div>
+        <div class="career-org">EDP Energias do Brasil · São Paulo</div>
+        <div class="career-desc">Analista Sênior de People Analytics. Projetos de Data Governance P&amp;O, modelos preditivos, dashboards estratégicos de força de trabalho e inteligência organizacional.</div>
+        <div class="career-chips"><span class="chip">Python</span><span class="chip">ML</span><span class="chip">Looker Studio</span><span class="chip">Azure</span><span class="chip">People Analytics</span></div>
+      </div>
+
+      <div class="career-card current">
+        <div class="career-period"><span class="current-dot"></span>mar/2022 — atual</div>
+        <div class="career-role">Professor Titular</div>
+        <div class="career-org">PPG Hospitalidade (Mestrado &amp; Doutorado) · UAM</div>
+        <div class="career-desc">Pesquisa e orientação em hospitalidade organizacional, hipocrisia organizacional (HospGap) e operacionalização por dados públicos. Orientador de 5 dissertações/teses ativas.</div>
+        <div class="career-chips"><span class="chip">Pesquisa</span><span class="chip">HospGap</span><span class="chip">NLP</span><span class="chip">Orientação</span></div>
+      </div>
+
+      <div class="career-card current">
+        <div class="career-period"><span class="current-dot"></span>mar/2013 — atual</div>
+        <div class="career-role">Professor Convidado</div>
+        <div class="career-org">FIA — MBA RH &amp; Gestão Estratégica de Pessoas</div>
+        <div class="career-desc">People Analytics e métodos quantitativos em RH para executivos e gestores em formação. Mais de 12 anos de docência continuada.</div>
+        <div class="career-chips"><span class="chip">People Analytics</span><span class="chip">Docência</span><span class="chip">MBA</span></div>
+      </div>
+
+      <div class="career-card">
+        <div class="career-period">mar/2022 — set/2023</div>
+        <div class="career-role">Analista de People Analytics Sênior</div>
+        <div class="career-org">Grupo Soma · marca Hering · São Paulo</div>
+        <div class="career-desc">Dashboards de turnover, absenteísmo, horas extras, cotas PCD, orçamento RH, NPS. Pesquisa de engajamento GPTW. Modelos preditivos de absenteísmo e turnover.</div>
+        <div class="career-chips"><span class="chip">Power BI</span><span class="chip">Turnover</span><span class="chip">GPTW</span><span class="chip">Varejo</span></div>
+      </div>
+
+      <div class="career-card">
+        <div class="career-period">mar/2021 — mar/2022</div>
+        <div class="career-role">Cientista de Dados Sênior</div>
+        <div class="career-org">Meta Serviços em Informática · cliente BRF Foods</div>
+        <div class="career-desc">Sugestões de inovação de produtos por cliente, previsão de demanda de vendas, sugestão de metas para vendedores, alerta de feriados em rotas e indicação de produtos substitutos.</div>
+        <div class="career-chips"><span class="chip">Python</span><span class="chip">ML</span><span class="chip">Previsão de Demanda</span><span class="chip">Alimentos</span></div>
+      </div>
+
+      <div class="career-card">
+        <div class="career-period">mar/2013 — fev/2021</div>
+        <div class="career-role">Proprietário</div>
+        <div class="career-org">D'A Silva Análise e Desenvolvimento de Pessoas</div>
+        <div class="career-desc">Consultoria e treinamento em gestão de pessoas, People Analytics e Workforce Planning. 8 anos construindo soluções independentes para empresas de diversos setores.</div>
+        <div class="career-chips"><span class="chip">Consultoria</span><span class="chip">Treinamento</span><span class="chip">Workforce Planning</span></div>
+      </div>
+
+      <div class="career-card">
+        <div class="career-period">ago/2011 — mar/2013</div>
+        <div class="career-role">Estatístico</div>
+        <div class="career-org">ABRH Brasil · São Paulo</div>
+        <div class="career-desc">Análises estatísticas para pesquisas e publicações da Associação Brasileira de Recursos Humanos.</div>
+        <div class="career-chips"><span class="chip">Estatística</span><span class="chip">RH</span><span class="chip">Pesquisa</span></div>
+      </div>
+
+      <div class="career-card">
+        <div class="career-period">abr/2007 — ago/2010</div>
+        <div class="career-role">Consultor Técnico</div>
+        <div class="career-org">FIA · Guia GPTW / Você S.A.</div>
+        <div class="career-desc">Análise de bases com 200.000+ empregados e 500+ empresas por edição do Guia das Melhores Empresas. Elaboração de relatórios, artigos e apresentações para empresas participantes.</div>
+        <div class="career-chips"><span class="chip">GPTW</span><span class="chip">200k+ empregados</span><span class="chip">Relatórios</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="inner">
+    <span class="section-eyebrow">Pesquisa</span>
+    <h2>Projetos de investigação</h2>
+    <p class="section-lead">Pesquisa em hospitalidade organizacional e People Analytics — unindo teoria crítica, NLP e dados públicos para medir o que as organizações raramente admitem.</p>
+    <div class="research-grid fade">
+
+      <div class="research-card">
+        <div class="research-type">🔬 Working Paper · 2026</div>
+        <div class="research-title">HospGap — The Hospitality Gap: Organizational Hypocrisy in Brazilian Service Firms</div>
+        <div class="research-desc">Constructo que designa a brecha estrutural entre valores relacionais declarados pelas organizações e as condições reais vividas pelos colaboradores. Framework de 5 dimensões (CA, MP, CI, AE, RE) analisadas em 212 relatos verbatim de 9 empresas brasileiras.</div>
+        <div class="research-meta">
+          <span>Lead author · 9 empresas · 5 setores</span>
+          <span class="research-status status-sub">Em submissão</span>
+        </div>
+      </div>
+
+      <div class="research-card">
+        <div class="research-type">🗺️ Working Paper · 2026</div>
+        <div class="research-title">Mapping Hospitality in Organizations through Open Web Data</div>
+        <div class="research-desc">Operacionalização do constructo HospGap como sistema de indicadores mensuráveis a partir de dados públicos (Indeed/Glassdoor + Reclame Aqui). Framework com matriz 2×2 Interno–Externo e z-score intra-setor para diagnóstico comparativo.</div>
+        <div class="research-meta">
+          <span>Lead author · Open Data · NLP</span>
+          <span class="research-status status-sub">Em submissão</span>
+        </div>
+      </div>
+
+      <div class="research-card">
+        <div class="research-type">📄 Artigo publicado · 2025</div>
+        <div class="research-title">Relationship between Hospitality Organizational Culture and Consumer Satisfaction</div>
+        <div class="research-desc">Estudo empírico que associa escores de cultura de hospitalidade organizacional (via NLP em avaliações do Indeed) com satisfação do consumidor e taxa de resolução de problemas (Reclame Aqui) em 30 empresas de serviço brasileiras.</div>
+        <div class="research-meta">
+          <span>Lima et al. (2025) · Corresponding author</span>
+          <span class="research-status status-pub">Publicado</span>
+        </div>
+      </div>
+
+      <div class="research-card">
+        <div class="research-type">🏛️ Bolsa UAM · 2022–2023</div>
+        <div class="research-title">Cultura de Hospitalidade Organizacional e Gestão de Pessoas</div>
+        <div class="research-desc">Edital UAM 13/2022. Dados de 600 funcionários em 30 organizações coletados via Indeed e Reclame Aqui. Método: clustering hierárquico Ward + K-Means e algoritmo NLP proprietário para scoring de hospitalidade.</div>
+        <div class="research-meta">
+          <span>600 funcionários · 30 organizações</span>
+          <span class="research-status status-pub">Concluído</span>
+        </div>
+      </div>
+
+      <div class="research-card">
+        <div class="research-type">🌐 Base de Conhecimento · ativa</div>
+        <div class="research-title">Wiki de Pesquisa em Hospitalidade &amp; Turismo</div>
+        <div class="research-desc">Knowledge base com 82 páginas wiki derivadas de 33+ fontes (artigos, papers, dados e notas). Cobre hospitalidade filosófica (Derrida, Camargo, Lashley), cultura organizacional, people management, plataformas digitais e sustentabilidade.</div>
+        <div class="research-meta">
+          <span>82 páginas · 33+ fontes · Obsidian</span>
+          <span class="research-status status-prog">Em expansão</span>
+        </div>
+      </div>
+
+      <div class="research-card">
+        <div class="research-type">💻 Patente · 2020</div>
+        <div class="research-title">Sistema de ML para Gestão de Talentos (INPI)</div>
+        <div class="research-desc">Sistema preditivo baseado em machine learning para avaliar o potencial de um funcionário se tornar talento em sua organização. Registro INPI 51 2020 002737-7. Depositado em dezembro de 2020.</div>
+        <div class="research-meta">
+          <span>INPI · nº 51 2020 002737-7</span>
+          <span class="research-status status-pub">Registrado</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="inner fade">
+    <span class="section-eyebrow">Publicações</span>
+    <h2>Livros, artigos &amp; capítulos</h2>
+    <p class="section-lead">Produção científica em gestão de pessoas, hospitalidade organizacional, comportamento organizacional e people analytics.</p>
+
+    <div class="pub-section">
+      <div class="pub-section-title">📚 Livros</div>
+      <div class="pub-item">
+        <div class="pub-year">2019</div>
+        <div class="pub-content">
+          <div class="pub-title">Inovação e Comprometimento na Administração de Empresas e Pessoas</div>
+          <div class="pub-authors">Silva, R. C.; Veloso, E.; Trevisan, L.</div>
+          <div class="pub-journal">Estação das Letras e Cores · São Paulo · 229p. · ISBN: 978-85-68552-91-9</div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2017</div>
+        <div class="pub-content">
+          <div class="pub-title">Gestão Organizacional</div>
+          <div class="pub-authors">Silva, R. C.</div>
+          <div class="pub-journal">Editora Senac · São Paulo · 147p.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-section">
+      <div class="pub-section-title">📑 Artigos Internacionais (seleção)</div>
+      <div class="pub-item">
+        <div class="pub-year">2025</div>
+        <div class="pub-content">
+          <div class="pub-title">Relationship between Hospitality Organizational Culture and Consumer Satisfaction in Resolving Problems</div>
+          <div class="pub-authors">Lima et al. — Corresponding author: R. C. Silva</div>
+          <div class="pub-journal">Revista de Gestão e Projetos (GeP) · 2025</div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2020</div>
+        <div class="pub-content">
+          <div class="pub-title">Leadership and Performance of Millennial Generation in Brazilian Companies</div>
+          <div class="pub-authors">Silva, R. C.</div>
+          <div class="pub-journal">Management Research · v.18, p.245–261 · 2020</div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2020</div>
+        <div class="pub-content">
+          <div class="pub-title">The Influence of Technologic Payment Adoption in Satisfaction</div>
+          <div class="pub-authors">Silva, R. C. et al.</div>
+          <div class="pub-journal">International Journal of Business Excellence · v.21 · 2020</div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2018</div>
+        <div class="pub-content">
+          <div class="pub-title">World Class Manufacturing Operations Management</div>
+          <div class="pub-authors">Silva, R. C. et al.</div>
+          <div class="pub-journal">International Journal of Innovation and Management (IJIMIT) · v.15 · 2018</div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2017</div>
+        <div class="pub-content">
+          <div class="pub-title">Generations and Commitment in Different Brazilian Human Resource Management Contexts</div>
+          <div class="pub-authors">Silva, R. C.; Dutra, J. S.; Veloso, E.; Trevisan, L.</div>
+          <div class="pub-journal">RECADM · v.16, n.1, p.5–24 · 2017</div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2015</div>
+        <div class="pub-content">
+          <div class="pub-title">Conditions for Service Climate in Brazilian Organizations</div>
+          <div class="pub-authors">Silva, R. C. et al.</div>
+          <div class="pub-journal">Latin American Business Review · v.16 · 2015</div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2015</div>
+        <div class="pub-content">
+          <div class="pub-title">Generational Perceptions and Their Influences on Organizational Commitment</div>
+          <div class="pub-authors">Silva, R. C. et al.</div>
+          <div class="pub-journal">Management Research · v.13 · 2015</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-section">
+      <div class="pub-section-title">🔄 Working Papers (2026)</div>
+      <div class="pub-item">
+        <div class="pub-year">2026</div>
+        <div class="pub-content">
+          <div class="pub-title">HospGap — The Hospitality Gap: Organizational Hypocrisy in Brazilian Service Firms</div>
+          <div class="pub-authors">Silva, R. C. et al. (lead author)</div>
+          <div class="pub-journal">212 relatos verbatim · 9 empresas · 5 setores · Em submissão</div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2026</div>
+        <div class="pub-content">
+          <div class="pub-title">Mapping Hospitality in Organizations through Open Web Data</div>
+          <div class="pub-authors">Silva, R. C. et al. (lead author)</div>
+          <div class="pub-journal">Framework de indicadores · Indeed + Reclame Aqui · Em submissão</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATENTS -->
+<section id="patents">
+  <div class="inner">
+    <span class="section-eyebrow">Propriedade Intelectual</span>
+    <h2>Patentes &amp; registros INPI</h2>
+    <p class="section-lead">Dois sistemas registrados no Instituto Nacional da Propriedade Industrial — aplicações de machine learning à gestão de pessoas.</p>
+    <div class="patents-grid fade">
+      <div class="patent-card">
+        <div class="patent-icon">🤖</div>
+        <div class="patent-num">INPI · Registro nº 51 2020 002737-7 · Depositado 02/12/2020</div>
+        <div class="patent-title">Sistema de Machine Learning para Gestão de Talentos</div>
+        <div class="patent-desc">Avalia automaticamente o potencial de um funcionário se tornar talento em sua organização. Modelo preditivo treinado com dados de desempenho, comportamento e contexto organizacional.</div>
+        <div class="patent-date">Concessão: 08/12/2020</div>
+      </div>
+      <div class="patent-card">
+        <div class="patent-icon">⚖️</div>
+        <div class="patent-num">INPI · Registro nº 512019001492-8 · Depositado 10/06/2019</div>
+        <div class="patent-title">STD — Sistema de Tomada de Decisão</div>
+        <div class="patent-desc">Sistema baseado em critérios quantitativos para suporte à tomada de decisão gerencial em contextos de alta complexidade e múltiplas variáveis organizacionais.</div>
+        <div class="patent-date">Concessão: 10/07/2019</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="inner">
+    <span class="section-eyebrow">Competências</span>
+    <h2>Stack técnico &amp; metodológico</h2>
+    <p class="section-lead">Combinação de métodos quantitativos avançados com profundo conhecimento do domínio de pessoas e hospitalidade.</p>
+    <div class="skills-layout fade">
+      <div>
+        <div class="skill-group-title">Ciência de Dados &amp; Programação</div>
+        <div class="skill-list">
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">Python (ML, NLP, Análise)</span><span class="skill-pct">95%</span></div>
+            <div class="skill-bar"><div class="skill-fill fill-accent" style="width:95%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">Machine Learning &amp; Modelos Preditivos</span><span class="skill-pct">90%</span></div>
+            <div class="skill-bar"><div class="skill-fill fill-accent" style="width:90%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">SQL</span><span class="skill-pct">85%</span></div>
+            <div class="skill-bar"><div class="skill-fill fill-accent" style="width:85%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">Power BI &amp; Looker Studio</span><span class="skill-pct">88%</span></div>
+            <div class="skill-bar"><div class="skill-fill fill-accent" style="width:88%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">Microsoft Azure</span><span class="skill-pct">75%</span></div>
+            <div class="skill-bar"><div class="skill-fill fill-accent" style="width:75%"></div></div>
+          </div>
+        </div>
+        <div class="skill-group-title" style="margin-top:2rem">Domínio &amp; Pesquisa</div>
+        <div class="skill-list">
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">People Analytics</span><span class="skill-pct">98%</span></div>
+            <div class="skill-bar"><div class="skill-fill fill-gold" style="width:98%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">Hospitalidade Organizacional</span><span class="skill-pct">95%</span></div>
+            <div class="skill-bar"><div class="skill-fill fill-gold" style="width:95%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">Gestão de Pessoas &amp; RH</span><span class="skill-pct">92%</span></div>
+            <div class="skill-bar"><div class="skill-fill fill-gold" style="width:92%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">Pesquisa Acadêmica &amp; Publicação</span><span class="skill-pct">90%</span></div>
+            <div class="skill-bar"><div class="skill-fill fill-gold" style="width:90%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-title">Ferramentas &amp; Tecnologias</div>
+        <div class="tools-grid">
+          <span class="tool-pill">🐍 Python</span>
+          <span class="tool-pill">🗄️ SQL</span>
+          <span class="tool-pill">📊 Power BI</span>
+          <span class="tool-pill">📈 Looker Studio</span>
+          <span class="tool-pill">☁️ Azure</span>
+          <span class="tool-pill">📓 Jupyter</span>
+          <span class="tool-pill">🤖 Sklearn</span>
+          <span class="tool-pill">📝 NLP</span>
+          <span class="tool-pill">🔷 K-Means</span>
+          <span class="tool-pill">📐 PLS-SEM</span>
+          <span class="tool-pill">📚 Obsidian</span>
+          <span class="tool-pill">🗒️ Office 365</span>
+        </div>
+        <div class="skill-group-title" style="margin-top:2rem">Idiomas</div>
+        <div class="skill-list">
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">Português</span><span class="skill-pct">Nativo</span></div>
+            <div class="skill-bar"><div class="skill-fill fill-gold" style="width:100%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">Inglês</span><span class="skill-pct">Avançado</span></div>
+            <div class="skill-bar"><div class="skill-fill fill-gold" style="width:85%"></div></div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;background:var(--white);border:1px solid var(--dust);border-radius:var(--radius);padding:1.25rem;box-shadow:var(--shadow)">
+          <div class="skill-group-title" style="margin-bottom:.75rem">Áreas de Pesquisa</div>
+          <div style="display:flex;flex-direction:column;gap:.4rem">
+            <span style="font-size:.78rem;color:var(--mid)">▹ Hospitalidade &amp; Cultura Organizacional</span>
+            <span style="font-size:.78rem;color:var(--mid)">▹ People Analytics &amp; Workforce Intelligence</span>
+            <span style="font-size:.78rem;color:var(--mid)">▹ Comportamento Geracional nas Organizações</span>
+            <span style="font-size:.78rem;color:var(--mid)">▹ Satisfação do Consumidor em Serviços</span>
+            <span style="font-size:.78rem;color:var(--mid)">▹ Hipocrisia Organizacional (HospGap)</span>
+            <span style="font-size:.78rem;color:var(--mid)">▹ Machine Learning aplicado à Gestão</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="inner">
+    <span class="section-eyebrow">Docência &amp; Orientação</span>
+    <h2>Formando pesquisadores<br/>e líderes</h2>
+    <p class="section-lead">Professor desde 2013, atualmente atuando no nível de mestrado e doutorado em hospitalidade e no MBA de People Analytics.</p>
+    <div class="teaching-grid fade">
+      <div>
+        <div class="teaching-block">
+          <div class="teaching-inst">
+            <div class="inst-icon">🏛️</div>
+            <div>
+              <div class="inst-name">Universidade Anhembi Morumbi</div>
+              <div class="inst-role">Professor Titular · PPG em Hospitalidade</div>
+              <div class="inst-period">mar/2022 — atual · Mestrado &amp; Doutorado</div>
+            </div>
+          </div>
+          <div class="teaching-inst">
+            <div class="inst-icon">📐</div>
+            <div>
+              <div class="inst-name">FIA — Administração e Negócios</div>
+              <div class="inst-role">Professor Convidado · MBA RH &amp; Gestão Estratégica de Pessoas</div>
+              <div class="inst-period">mar/2013 — atual · +12 anos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-weight:700;font-size:.825rem;text-transform:uppercase;letter-spacing:.5px;color:var(--ink2);margin-bottom:1rem;font-size:.72rem">Orientandos Ativos · PPG Hospitalidade UAM</div>
+        <div class="orientandos-grid">
+          <div class="orientando-card">
+            <div class="orientando-level level-m">Mestrado · 2025</div>
+            <div class="orientando-name">Roberson Yamamoto</div>
+            <div class="orientando-tema">Hospitalidade, feiras de negócio e capital simbólico</div>
+          </div>
+          <div class="orientando-card">
+            <div class="orientando-level level-m">Mestrado · 2025</div>
+            <div class="orientando-name">Laura Soares Corrêa</div>
+            <div class="orientando-tema">Hospitalidade inclusiva e neurociência no ensino superior</div>
+          </div>
+          <div class="orientando-card">
+            <div class="orientando-level level-m">Mestrado · em curso</div>
+            <div class="orientando-name">Marcos Oliver</div>
+            <div class="orientando-tema">Tema a definir</div>
+          </div>
+          <div class="orientando-card">
+            <div class="orientando-level level-d">Doutorado · 2025</div>
+            <div class="orientando-name">Maria Euma Soares</div>
+            <div class="orientando-tema">Hospitalidade, liderança e cultura organizacional</div>
+          </div>
+          <div class="orientando-card">
+            <div class="orientando-level level-d">Doutorado · em curso</div>
+            <div class="orientando-name">Júlio Araújo da Silva Junior</div>
+            <div class="orientando-tema">Tema a definir</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="inner">
+    <span class="section-eyebrow">Contato</span>
+    <h2>Vamos conversar?</h2>
+    <div class="contact-layout fade">
+      <div>
+        <p class="contact-desc">
+          Estou aberto a colaborações de pesquisa, convites para bancas, projetos de People Analytics e consultorias em hospitalidade organizacional. Se você tem um problema de dados ou uma questão de pesquisa interessante, entre em contato.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:rdgcdasilva@gmail.com" class="contact-link">
+            <div class="cl-icon">📧</div>
+            <div><div class="cl-label">E-mail principal</div><div class="cl-val">rdgcdasilva@gmail.com</div></div>
+          </a>
+          <a href="https://www.linkedin.com/in/rodrigo-da-cunha-a5604035b/" target="_blank" rel="noopener" class="contact-link">
+            <div class="cl-icon">🔗</div>
+            <div><div class="cl-label">LinkedIn</div><div class="cl-val">linkedin.com/in/rodrigo-da-cunha</div></div>
+          </a>
+          <a href="https://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4177256J0" target="_blank" rel="noopener" class="contact-link">
+            <div class="cl-icon">📋</div>
+            <div><div class="cl-label">Lattes CNPq</div><div class="cl-val">K4177256J0</div></div>
+          </a>
+          <a href="https://orcid.org/0000-0002-0730-7801" target="_blank" rel="noopener" class="contact-link">
+            <div class="cl-icon">🆔</div>
+            <div><div class="cl-label">ORCID</div><div class="cl-val">0000-0002-0730-7801</div></div>
+          </a>
+          <a href="https://www.escavador.com/sobre/8495397/rodrigo-cunha-da-silva" target="_blank" rel="noopener" class="contact-link">
+            <div class="cl-icon">🔍</div>
+            <div><div class="cl-label">Escavador</div><div class="cl-val">escavador.com · Rodrigo Cunha da Silva</div></div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-title">Enviar uma mensagem</div>
+        <form onsubmit="handleForm(event)">
+          <div class="form-row"><label>Seu nome</label><input type="text" placeholder="Nome completo" required /></div>
+          <div class="form-row"><label>E-mail</label><input type="email" placeholder="seuemail@exemplo.com" required /></div>
+          <div class="form-row">
+            <label>Assunto</label>
+            <select>
+              <option>Colaboração em pesquisa</option>
+              <option>Convite para banca</option>
+              <option>People Analytics / Consultoria</option>
+              <option>Docência / Palestra</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="form-row"><label>Mensagem</label><textarea placeholder="Descreva sua proposta ou dúvida..." required></textarea></div>
+          <button type="submit" class="form-btn" id="form-btn">Enviar mensagem</button>
+          <p class="form-note" id="form-msg">Responderei em até 48 horas.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-name">Prof. Dr. Rodrigo Cunha da Silva</div>
+      <div class="footer-sub">PPG Hospitalidade · UAM &nbsp;|&nbsp; EDP &nbsp;|&nbsp; FIA &nbsp;|&nbsp; São Paulo, SP</div>
+    </div>
+    <div class="footer-links">
+      <a href="#about">Sobre</a>
+      <a href="#research">Pesquisa</a>
+      <a href="#publications">Publicações</a>
+      <a href="mailto:rdgcdasilva@gmail.com">E-mail</a>
+      <a href="https://www.linkedin.com/in/rodrigo-da-cunha-a5604035b/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+  function handleForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('form-btn');
+    const msg = document.getElementById('form-msg');
+    btn.textContent = 'Enviando…'; btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = '✓ Mensagem enviada!';
+      msg.textContent = 'Obrigado! Responderei em breve.';
+      msg.style.color = '#2a7a5a';
+      msg.style.fontWeight = '600';
+      setTimeout(() => {
+        btn.textContent = 'Enviar mensagem'; btn.disabled = false;
+        msg.textContent = 'Responderei em até 48 horas.';
+        msg.style.color = ''; msg.style.fontWeight = '';
+        e.target.reset();
+      }, 3500);
+    }, 1200);
+  }
+
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    document.querySelectorAll('section[id]').forEach(s => {
+      if (window.scrollY >= s.offsetTop - 130) cur = s.id;
+    });
+    navLinks.forEach(a => a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--accent)' : '');
+  });
+</script>
+</body>
+</html>
